@@ -1,0 +1,596 @@
+// VARIABLE
+$petronasGreen: #00B3A8;
+$white: #fff;
+$black: #000;
+$primaryBlack: #333;
+$secondaryBlack: #3D3935;
+$purple: #684686;
+$yellow: #FBB73B;
+$lime: #CBD34D;
+$orange: #EFAA23;
+$headingStack: 'Montserrat', sans-serif;
+$bodyStack: 'Open sans', sans-serif;
+
+// MIXINS
+// SHADOW
+@mixin material-shadow($level:1) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $headingStack;
+}
+
+a {
+  color: $primaryBlack;
+  cursor: pointer;
+  &:hover {
+    color: $petronasGreen;
+    text-decoration: none;
+  }
+}
+
+// UTILITIES
+.bg-green {
+  background-color: $petronasGreen;
+}
+.bg-white {
+  background-color: $white;
+}
+.bg-dark {
+  background-color: $secondaryBlack;
+}
+.bg-purple {
+  background-color: $purple;
+}
+.bg-lime {
+  background-color: $lime;
+}
+.bg-orange {
+  background-color: $orange;
+}
+.bg-yellow {
+  background-color: $yellow;
+}
+// LAYOUT
+body {
+  font-family: $bodyStack;
+  overflow-x: hidden;
+}
+.petronas__wapper {
+  position: relative;
+}
+// FIRST SECTION BG
+.petronas__top-section-bg {
+  background-image: url('../img/kl_bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 671px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+// HEADER
+.petronas__header {
+  a {
+    color: $white;
+    text-decoration: none;
+    font-family: $headingStack;
+  }
+  .petronas__navbar {
+    border-top: 0;
+  }
+  .petronas__nav-expand {
+    font-size: 1.5em;
+    color: $white;
+    line-height: 1;
+  }
+  .petronas__top-brand-title {
+    font-size: 1em;
+  }
+  .petronas__top-brand {
+    padding-top: 0;
+    img {
+      max-width: 5em;
+    }
+  }
+  .petronas__navbar-right {
+    position: relative;
+  }
+  .petronas__navbar-search-container {
+    margin: 0;
+    position: absolute;
+    left: -36px;
+    min-width: 40.5px;
+    width: 0;
+    overflow: hidden;
+    transition: width .35s ease;
+    a {
+      position: relative;
+      z-index: 4;
+      background: $petronasGreen;
+      padding: 15px;
+      display: block;
+      width: 40.5px;
+    }
+    &:hover {
+      width: 30em;
+    }
+  }
+  .petronas__navbar-search {
+    width: 100%;
+    position: absolute;
+    top: 8px;
+    right: 1px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 1;
+    padding-left: 50px;
+    color: $petronasGreen;
+  }
+  .petronas__navbar-search::-webkit-input-placeholder {
+  	color: darken($petronasGreen, 5%);
+  }
+
+  .petronas__navbar-search:-moz-placeholder {
+  	color: darken($petronasGreen, 5%);
+  }
+
+  .petronas__navbar-search::-moz-placeholder {
+  	color: darken($petronasGreen, 5%);
+  }
+
+  .petronas__navbar-search:-ms-input-placeholder {
+  	color: darken($petronasGreen, 5%);
+  }
+  .petronas__navbar-user-link {
+    position: relative;
+    margin-right: 0;
+    .username {
+      margin-right: 46px;
+    }
+    .petronas__navbar-user-photo {
+      position: absolute;
+      border-radius: 50%;
+      right: 0;
+      top: -6px;
+      border: 1px solid $white;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+// SLIDER
+.petronas__top-slider-container {
+  background: $white;
+  .petronas__slick-item {
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0,0,0, .35);
+      z-index: 0;
+    }
+    &#slick1 {
+      background-image: url('../img/banner1.jpeg');
+    }
+    &#slick2 {
+      background-image: url('../img/banner2.jpeg');
+    }
+    &#slick3 {
+      background-image: url('../img/banner3.jpeg');
+    }
+    &#slick4 {
+      background-image: url('../img/banner4.jpeg');
+    }
+    &#slick5 {
+      background-image: url('../img/banner5.jpeg');
+    }
+  }
+  .petronas__slick-inner-slide {
+    padding: 8em 9em;
+    color: $white;
+    position: relative;
+    z-index: 1;
+    .circle-handle {
+      span {
+        padding: 2em 1.5em 1.5em;
+        background: $petronasGreen;
+        border-radius: 50%;
+        height: 80px;
+        display: inline-block;
+        color: $white;
+      }
+    }
+    .petronas__news-meta {
+      position: absolute;
+      bottom: 6em;
+      right: 14%;
+      a {
+        color: $white;
+        margin-left: 1em;
+        .count {
+          margin-left: .25em;
+        }
+      }
+    }
+    .petronas__news-aside {
+      position: absolute;
+      bottom: -5em;
+      width: 75%;
+      padding: 0;
+      .petronas__news-aside-inner {
+        padding: 1em;
+        // background: rgba(0,0,0, .35);
+        border-radius: 3px;
+        .media-object {
+          max-width: 6em;
+          border-radius: 50%;
+          border: 4px solid $white;
+        }
+        .media-body {
+          position: relative;
+          h4 {
+            max-width: 80%;
+          }
+        }
+        .petronas__news-aside-label {
+          text-transform: uppercase;
+          position: absolute;
+          right: 0;
+          top: 1.2em;
+          padding: 0.2em .5em;
+          background: rgba(255,255,255, .66);
+          color: $primaryBlack;
+        }
+      }
+    }
+  }
+  .petronas__slick-dots {
+    left: 9em;
+    width: 75%;
+    bottom: 10em;
+    text-align: left;
+    border-top: 4px solid $white;
+    li {
+      button {
+        &:before {
+          content: '';
+          border-radius: 50%;
+          border: 2px solid $white;
+          background: $black;
+        }
+        &:hover {
+          &:before {
+            opacity: .5;
+          }
+        }
+      }
+      &.slick-active button:before {
+        background: $petronasGreen;
+      }
+    }
+  }
+}
+
+// SECTION ONE/TWO
+.petronas__section-article-tag,
+.petronas__section-tools {
+  padding: 2em 0;
+}
+.petronas__section-article-tag,
+.petronas__section-tools {
+  h3 {
+    color: $white;
+  }
+}
+.petronas__collapse-control-btn {
+  font-size: 1em;
+  color: $white;
+  i.icon {
+    margin-left: .5em;
+  }
+}
+.petronas__section-collapse-content {
+  .petronas__section-horizontal {
+    padding: 2em 3em;
+    width: 100%;
+    white-space: nowrap;
+  	overflow-y: hidden;
+  	overflow-x: scroll;
+  	-webkit-overflow-scrolling: touch;
+    // hide the scrollbar
+    &::-webkit-scrollbar {
+       display: none;
+    }
+    .petronas__tag-card {
+      float: none;
+      display: inline-block;
+      .petronas__tag-card-inner {
+        height: 200px;
+        color: white;
+        padding-top: 20%;
+        text-align: center;
+        background-image: url('../img/kl_bg.jpeg');
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        transform: scale(1);
+        transition: all .35s ease;
+        @include material-shadow(1);
+        &:hover {
+          @include material-shadow(2);
+          transform: scale(1.2);
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+// SECOND SECTION
+.petronas__section-other-slick-item {
+  @extend .bg-purple;
+  padding: 4em 2em;
+  color: $white;
+  min-height: 300px;
+  h3 {
+    margin-top: 0;
+  }
+}
+.petronas__section-other-column {
+  padding: 0;
+  .petronas__section-other-articles {
+    padding-top: 2em;
+  }
+  .petronas__section-other-articles,
+  .petronas__section-other-slider {
+    border-right: 1px solid rgba(0, 0, 0, .15);
+    border-left: 1px solid rgba(0,0,0, .15);
+  }
+}
+.petronas__section-other-row {
+  // padding-top: 2em;
+  &.petronas__section-other-slider {
+    padding: 0;
+    margin: 0;
+  }
+}
+.petronas__other-section-dots {
+  bottom: 1em;
+  text-align: right;
+  padding: 0 1em;
+  li {
+    button {
+      &:before {
+        content: '';
+        border-radius: 50%;
+        border: 2px solid $white;
+        background: transparent;
+      }
+      &:hover {
+        &:before {
+          opacity: .5;
+        }
+      }
+    }
+    &.slick-active button:before {
+      background: $petronasGreen;
+    }
+  }
+}
+.petronas__section-other-ad {
+
+}
+.petronas__president-column {
+  background-image: url('../img/dwan.png');
+  background-size: cover;
+  background-position: 8em top;
+  background-repeat: no-repeat;
+  height: 400px;
+  padding: 2em;
+  .handler {
+    span {
+      padding: 2em 1.5em 1.5em;
+      background: $petronasGreen;
+      border-radius: 50%;
+      height: 80px;
+      display: inline-block;
+      color: $white;
+    }
+  }
+  .short-intro {
+    padding: 5em 10em 6em 0;
+  }
+  .control {
+    // padding: 0 1em;
+  }
+}
+
+// QUOTE SECTION
+.petronas__other-quote-inner {
+  padding: 2em;
+  min-height: 300px;
+}
+.petronas__other-quote-arrow {
+  top: 90%;
+  z-index: 1;
+  &.slick-next {
+    right: 12px
+  }
+  &.slick-prev {
+    left: 85%;
+  }
+}
+
+// TODAY IS THE DAY BANNER
+.petronas__other-today-banner {
+  background-image: url('../img/feature-klcc-lg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  padding: 4em 2em 2em;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0, .35);
+    z-index: 0;
+  }
+  .banner-content {
+    background: $petronasGreen;
+    padding: 1em;
+    color: $white;
+    position: relative;
+    z-index: 1;
+    a {
+      color: $white;
+    }
+  }
+}
+
+// ARTICLE TAB
+.petronas__nav-tab {
+  padding-left: 10em;
+  padding-right: 10em;
+  > li > a {
+    border-bottom: 2px solid transparent;
+    padding: 10px 36px;
+    color: $primaryBlack;
+  }
+  > li.active > a {
+    font-weight: bold;
+  }
+  > li.active > a,
+  > li.active > a:focus,
+  > li.active > a:hover {
+    border: 0;
+    border-bottom: 2px solid $yellow;
+  }
+}
+.petronas__article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  .pertonas__article-item {
+    padding: 2em 4em;
+    border-bottom: 1px solid rgba(0,0,0, .15);
+    .media-heading {
+      position: relative;
+    }
+    .media-body a {
+      color: $primaryBlack;
+      text-decoration: none;
+    }
+    .petronas__article-meta {
+      display: inline;
+      position: absolute;
+      right: 0;
+      font-size: .8em;
+      .petronas__article-meta-count {
+        margin-right: 1em;
+        .count {
+          margin-left: .25em;
+        }
+      }
+    }
+  }
+}
+.petronas__article-list-control {
+  padding: 2em;
+  p {
+    margin: 0;
+  }
+}
+
+// FOOTER
+.petronas__footer {
+  background: $orange;
+  .petronas__footer-collapse-control {
+    padding: 2em 0;
+  }
+  .petronas__footer-links-collapse {
+    background: $purple;
+  }
+  .petronas__footer-links-container {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  .petronas__footer-links-inside {
+    padding: 2em 0;
+  }
+  .pertonas__footer-links-section,
+  .petronas__footer-link a {
+    color: $white;
+  }
+  .petronas__footer-link {
+    line-height: 2;
+  }
+}
+
+// SECONDARY FOOTER
+.petronas__footer-secondary-links {
+  padding: 2em 0;
+  .secondary-links {
+    letter-spacing: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      margin-right: 2em;
+      a {
+        color: $white;
+        padding-bottom: 1em;
+        border-bottom: 1px solid transparent;
+        transition: all .35s ease;
+        &:hover {
+          border-bottom-color: $white;
+        }
+      }
+    }
+  }
+}
+.petronas_footer-secondary-row {
+  padding: 1em 0;
+}
+
+@media (min-width: 992px) {
+  .petronas__section-collapse-content .petronas__section-horizontal .petronas__tag-card .petronas__tag-card-inner {
+    height: 240px;
+  }
+}
